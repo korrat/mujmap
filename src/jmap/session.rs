@@ -81,7 +81,7 @@ pub struct CoreCapabilities {
     pub collation_algorithms: Vec<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Default, Deserialize)]
 pub struct EmptyCapabilities {}
 
 #[derive(Debug, Deserialize)]
@@ -104,7 +104,7 @@ pub struct Account {
 
 #[derive(Debug, Deserialize)]
 pub struct AccountCapabilities {
-    #[serde(rename = "urn:ietf:params:jmap:core")]
+    #[serde(default, rename = "urn:ietf:params:jmap:core")]
     pub core: EmptyCapabilities,
     #[serde(rename = "urn:ietf:params:jmap:mail")]
     pub mail: MailAccountCapabilities,
